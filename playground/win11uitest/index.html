@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Win11UITest</title>
+    <link rel="icon" href="/resources/logo-rounded.png" />
+    <!--<link rel="stylesheet" href="/resources/globalstyle.css" />-->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="background">
+      <div id="bg"></div>
+    </div>
+    <div class="container">
+      <button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border black-border interact-anm-alt">
+        <div class="text-container">
+          <div>Choose your mode</div>
+          <div class="description">Change the colors that appear in Windows and your apps</div>
+        </div>
+      </button>
+      <button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px; display: flex; align-items: center" class="button visible-border black-border interact-anm-alt">
+        <img class="icon" src="./settings.svg" alt="Settings icon" />
+        <div class="text-container">
+          <div>Choose your mode</div>
+          <div class="description">Change the colors that appear in Windows and your apps</div>
+        </div>
+        <img style="transform: scale(0.6)" class="icon" src="./chevron-right.svg" alt="Right chevron" />
+      </button>
+      <button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px; display: flex; align-items: center" class="button visible-border black-border interact-anm">
+        <div class="icon"></div>
+        <div class="text-container">
+          <div>Choose your mode</div>
+          <div class="description">Change the colors that appear in Windows and your apps</div>
+        </div>
+        <img style="transform: scale(0.6)" class="icon" src="./chevron-right.svg" alt="Right chevron" />
+      </button>
+      <button style="text-align: center; margin: 1.5px; display: flex; align-items: center; --accent-color-light: rgb(161, 62, 75)" class="button visible-border interact-anm colored">
+        <div class="text-container">
+          <div>Choose your mode</div>
+        </div>
+      </button>
+    </div>
+    <div class="container" style="display: block">
+      <button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border show-on-hover interact-anm">
+        <div class="text-container">
+          <div>A</div>
+        </div>
+      </button>
+
+      <button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border show-on-hover interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="colored button visible-border show-on-hover interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button show-on-hover interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border black-border interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border colored interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button id="toggleButton" onclick="toggling()" style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button show-on-hover interact-anm">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 15px; margin: 1.5px" class="button visible-border show-on-hover interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div></button
+      ><button style="text-align: left; padding-top: 15px; padding-bottom: 1995px; margin: 1.5px" class="button visible-border show-on-hover interact-anm-alt">
+        <div class="text-container">
+          <div>A</div>
+        </div>
+      </button>
+    </div>
+    <div style="display: block" class="container">
+      <label class="toggle">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+
+      <label class="toggle">
+        <input type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <script src="./main.js"></script>
+    <!--<script src="/homepage/js/main.js"></script>-->
+  </body>
+</html>

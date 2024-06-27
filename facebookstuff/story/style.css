@@ -1,0 +1,187 @@
+* {
+    transition: background-color 0.25s ease-in-out;
+    -webkit-transition: background-color 0.25s ease-in-out;
+    font-family: system-ui;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+:root {
+    --anm: 0px;
+    --anm2: 0px;
+    --anm3: 0;
+    --bg-color: #fff;
+    --popup-color: #fafafa;
+    --border-color: #e6e6e6;
+    --addbttn-color: var(--bg-color);
+    --overlay: #00000033;
+}
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.container {
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    overflow: hidden;
+    width: 80vw;
+}
+.view-container {
+    white-space: nowrap;
+    overflow: scroll hidden;
+    padding: 10px 0;
+}
+.view-container > .card {
+    transition: transform 0.1s cubic-bezier(0.25, 0.1, 0.46, 2.17);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.25, 0.1, 0.46, 2.17);
+}
+.view-container > .card:hover:active {
+    transform: scale(0.97);
+    transition: transform 0s;
+    -webkit-transform: scale(0.97);
+    -webkit-transition: -webkit-transform 0s;
+}
+.view-container > .card::after {
+    transition: background-color 0.1s linear;
+    -webkit-transition: background-color 0.1s linear;
+    content: "";
+    display: block;
+    position: relative;
+    height: inherit;
+    border-radius: inherit;
+}
+.view-container > .card:hover:active::after {
+    background-color: var(--overlay);
+    transition: none;
+    -webkit-transition: none;
+}
+.card {
+    display: inline-block;
+    width: 97px;
+    height: 180px;
+    background-color: var(--popup-color);
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    margin-right: 5px;
+    outline: solid 1.5px var(--border-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://cdn.wallpaperhub.app/cloudcache/6/4/7/e/7/9/647e79308ad97048d578fc2a29cb82933fbb8b3d.png');
+}
+.main {
+    background-color: var(--addbttn-color);
+    position: absolute;
+    margin-left: calc(-13px + var(--anm2)/1.26);
+    z-index: 1;
+    top: calc(67% - 78px);
+    transform: translate(calc(53px - var(--anm)), calc(50px - var(--anm2)/55*40)) scale(0.8);
+    border-radius: calc(30px - var(--anm2)/1.8) 30px 30px calc(30px - var(--anm2)/1.8);
+    -webkit-transform: translate(calc(53px - var(--anm)), calc(50px - var(--anm2)/55*40)) scale(0.8);
+    -webkit-border-radius: calc(30px - var(--anm2)/1.8) 30px 30px calc(30px - var(--anm2)/1.8);
+    width: calc(45px + var(--anm2)/55*18);
+    height: calc(45px + var(--anm2)/55*18);
+    outline: none;
+    opacity: calc(var(--anm3)/55*40);
+    -webkit-opacity: calc(var(--anm3)/55*40);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, calc(var(--anm3)/55*0.2));
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, calc(var(--anm3)/55*0.2));
+    visibility: hidden;
+}
+.main:hover:active {
+    filter: brightness(0.8);
+    -webkit-filter: brightness(0.8);
+}
+.maincard {
+    margin-left: 15px;
+    position: relative;
+}
+.maincard > picture {
+    position: absolute;
+    height: 67%;
+    width: inherit;
+    background: url('./avatar.png') no-repeat center;
+    background-size: cover;
+}
+.maincard > text {
+    bottom: 6px;
+    position: absolute;
+    width: inherit;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.maincard, .main {
+    overflow: hidden;
+    background-image: none;
+}
+.add-icon {
+    background: url(./add.svg) no-repeat;
+    background-size: calc(38px - var(--anm2)/55*20);
+    background-position: center;
+    height: inherit;
+    position: absolute;
+    width: inherit;
+    transform: translate(calc(var(--anm2)/55*13), calc(var(--anm2)/55*13));
+    -webkit-transform: translate(calc(var(--anm2)/55*13), calc(var(--anm2)/55*13));
+}
+.add-bttn-container {
+    position: absolute;
+    transform: translate(-50%, calc(50px - 50%));
+    -webkit-transform: translate(-50%, calc(50px - 50%));
+    top: calc(67% - 50px);
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: var(--popup-color);
+    border-radius: 30px;
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+.add-bttn {
+    background: url(./add.svg) no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: inherit;
+    height: inherit;
+    margin: 3px;
+}
+.picture-container {
+    display: flex;
+    position: absolute;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    height: inherit;
+    align-items: center;
+    width: inherit;
+    justify-content: center;
+}
+.picture {
+    background: url('./avatar.png') no-repeat;
+    background-position: center;
+    height: calc(38px + var(--anm2)/55*7);
+    width: calc(38px + var(--anm2)/55*7);
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    background-size: cover;
+}
+@media only screen and (max-width: 650px) {
+    .container {
+        width: 100%;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --bg-color: #272727;
+        --popup-color: #363636;
+        --border-color: #232323;
+        --addbttn-color: var(--popup-color);
+        --overlay: #ffffff33;
+    }
+}

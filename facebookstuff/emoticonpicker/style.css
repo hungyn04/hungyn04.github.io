@@ -1,0 +1,172 @@
+body {
+    background-color: rgb(250, 250, 250);
+    font-family: system-ui;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 128px 0;
+    height: 65px;
+}
+.picker-container {
+    position: relative;
+    width: 413px;
+    height: 65px;
+    --height: 56px;
+}
+.em-background {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 3px 1px #0000001f;
+    border-radius: 60px;
+    height: 100%;
+    width: 100%;
+}
+.em-container {
+    width: inherit;
+    height: inherit;
+}
+.em {
+    height: 100%;
+    padding: 7px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.em, .container {
+    align-items: flex-start;
+    align-items: flex-end;
+}
+.emoticon {
+    height: inherit;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+.emoticon::before {
+    content: "";
+    padding: 100% calc(50% + 7px);
+    position: absolute;
+    margin: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+.emoticon::after {
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    right: 50%;
+    transform: translateX(50%) scale(0);
+    -webkit-transform: translateX(50%) scale(0);
+    top: calc(0px - (-2%*115 + 108px));
+    top: calc(-2%*65 + 75px);
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    background: #00000045;
+    color: white;
+    border-radius: 999px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.45s cubic-bezier(0.27, 1.33, 0.46, 1);
+    -webkit-transition: 0.45s cubic-bezier(0.27, 1.33, 0.46, 1);
+}
+.emoticon:hover::after {
+    transform: translateX(50%) scale(1);
+    -webkit-transform: translateX(50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+.emoticon:hover {
+    height: 105px;
+}
+.picker-container:hover {
+    height: var(--height);
+}
+.emoticon, .picker-container {
+    transition: height 0.45s cubic-bezier(0.27, 1.33, 0.46, 1);
+    -webkit-transition: height 0.45s cubic-bezier(0.27, 1.33, 0.46, 1);
+}
+.emoticon:nth-child(1) {
+    background: url('./svg/like.svg');
+}
+.emoticon:nth-child(1)::before {
+    margin: 50% calc(25% + 7px);
+    padding: 100% 75%;
+}
+.emoticon:nth-child(1)::after {
+    content: "Thích";
+}
+.emoticon:nth-child(2) {
+    background: url('./svg/love.svg');
+}
+.emoticon:nth-child(2) {
+    background: url('./svg/love.svg');
+}
+.emoticon:nth-child(2)::after {
+    content: "Yêu thích";
+}
+.emoticon:nth-child(3) {
+    background: url('./svg/care.svg');
+}
+.emoticon:nth-child(3) {
+    background: url('./svg/care.svg');
+}
+.emoticon:nth-child(3)::after {
+    content: "Thương thương";
+}
+.emoticon:nth-child(4) {
+    background: url('./svg/haha.svg');
+}
+.emoticon:nth-child(4) {
+    background: url('./svg/haha.svg');
+}
+.emoticon:nth-child(4)::after {
+    content: "Haha";
+}
+.emoticon:nth-child(5) {
+    background: url('./svg/wow.svg');
+}
+.emoticon:nth-child(5) {
+    background: url('./svg/wow.svg');
+}
+.emoticon:nth-child(5)::after {
+    content: "Wow";
+}
+.emoticon:nth-child(6) {
+    background: url('./svg/sad.svg');
+}
+.emoticon:nth-child(6) {
+    background: url('./svg/sad.svg');
+}
+.emoticon:nth-child(6)::after {
+    content: "Buồn";
+}
+.emoticon:nth-child(7) {
+    background: url('./svg/angry.svg');
+}
+.emoticon:nth-child(7) {
+    background: url('./svg/angry.svg');
+}
+.emoticon:nth-child(7)::after {
+    content: "Phẫn nộ";
+}
+.emoticon:nth-last-child(1)::before {
+    margin: 50% calc(75% - 7px);
+    padding: 100% 75%;
+}
+body, .em-background {
+    transition: background-color 0.25s ease-in-out;
+    -webkit-transition: background-color 0.25s ease-in-out;
+}
+button {
+    padding: 10px 40px;
+    font-size: 1rem;
+    margin-left: 140px;
+}
+@media (prefers-color-scheme:dark) {
+    body {
+        background-color: rgb(32, 32, 32);
+    }
+    .em-background {
+        background-color: rgb(49, 49, 49);
+    }
+}
