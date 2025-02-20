@@ -11,4 +11,4 @@ function createSnow() {
 
 let a = setInterval(() => {
   createSnow();
-}, Math.random() * 500);
+}, (Math.random() + 1) * 250);
