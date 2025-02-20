@@ -1,0 +1,44 @@
+body {
+  background-color: black;
+}
+
+#snowContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.snow-flake {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 999px;
+  filter: blur(2px);
+  margin-left: 100px;
+  top: -10px;
+  animation: move-to-bottom 10s linear, wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0% {
+    left: -10px;
+  }
+  50% {
+    left: 10px;
+  }
+  100% {
+    left: -10px;
+  }
+}
+
+@keyframes move-to-bottom {
+  0% {
+    top: -10px;
+  }
+  100% {
+    top: 100%;
+  }
+}

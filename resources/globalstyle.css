@@ -1,47 +1,57 @@
-img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]{
-	display: none;
-}
-.disclaimer {
-    display: none; 
-}
 body {
-    margin: 0;
+  margin: 0;
 }
 ::-webkit-scrollbar {
-    width: 13px;
-    height: 13px;
+  width: 13px;
+  height: 13px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #808080;
-    background-clip: padding-box;
-    border: solid transparent;
-    border-width: 3px;
-    border-radius: 10px;
+  background-color: #808080;
+  background-clip: padding-box;
+  border: solid transparent;
+  border-width: 3px;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #757575;
+  background-color: #757575;
 }
 ::-webkit-scrollbar-thumb:active {
-    background-color: #999999;
+  background-color: #999999;
 }
 @media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-    }
+  :root {
+    color-scheme: dark;
+  }
 }
 @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes fade-out {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @-webkit-keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-webkit-keyframes fade-out {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
