@@ -188,6 +188,21 @@ header {
   min-width: fit-content;
   -webkit-tap-highlight-color: transparent;
 }
+
+.item.new::before {
+  content: "Vừa thêm!!";
+  font-family: "-bahnsr";
+  position: relative;
+  margin-left: -10px;
+  margin-right: 20px;
+  min-width: 77px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background: #242424;
+}
+
 .item::after {
   background-color: var(--text-color);
   border: solid 2px var(--item-bg);
