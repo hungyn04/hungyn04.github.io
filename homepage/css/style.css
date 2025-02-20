@@ -14,6 +14,7 @@ html {
   opacity: 0;
   animation: slide-in 0.4s 0.2s cubic-bezier(0, 0.93, 0, 0.99), fade-in 0.3s 0.2s both;
   -webkit-animation: slide-in 0.4s 0.2s cubic-bezier(0, 0.93, 0, 0.99), fade-in 0.3s 0.2s both;
+  font-family: -bahnsr;
 }
 body {
   background-color: var(--page-color);
@@ -75,8 +76,7 @@ header {
   margin-bottom: -6px;
   font-size: calc(2em - min(10px, var(--scroll-progress-px) / 10));
   text-transform: uppercase;
-  font-family: -rift;
-  font-weight: bold;
+  font-stretch: semi-condensed;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -110,12 +110,12 @@ header {
   width: 100%;
 }
 .gtext > div:nth-child(1) {
-  font-family: -ibrandon;
+  letter-spacing: -0.05em;
   font-size: 4em;
 }
 .gtext > div:nth-child(2) {
+  opacity: 0.7;
   margin-top: 20px;
-  font-family: -bahnsr;
   font-size: 1.5em;
 }
 .grabber {
@@ -154,8 +154,9 @@ header {
   position: relative;
 }
 .sectitle {
-  font-family: -ibrandon;
-  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2rem;
   margin: 60px 0 60px 0;
 }
 /*.sectitle::after {
@@ -191,11 +192,10 @@ header {
 
 .item.new::before {
   content: "Vừa thêm!!";
-  font-family: "-bahnsr";
   position: relative;
   margin-left: -10px;
   margin-right: 20px;
-  min-width: 77px;
+  min-width: fit-content;
   height: 15px;
   padding: 10px;
   border-radius: 10px;
@@ -231,7 +231,6 @@ header {
   opacity: 0.15;
 }
 .item-title {
-  font-family: -bahnsr;
   font-size: 18px;
   overflow: hidden;
   width: calc(100% - 20px);
@@ -323,6 +322,30 @@ header {
 .item-container.link > :nth-child(7) .item-img {
   background-image: url(/resources/social-icons/rddt-icon.svg);
 }
+
+footer {
+  margin: 100px 0;
+  display: grid;
+  justify-content: center;
+}
+
+.qa-container {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.quote {
+  text-transform: uppercase;
+  font-size: min(5vw, 30px);
+  font-weight: lighter;
+  letter-spacing: 1em;
+}
+
+.author {
+  margin-top: min(2.5vw, 10px);
+  font-size: min(2.5vw, 15px);
+}
+
 @media only screen and (max-width: 550px) {
   .gtext {
     font-size: max(5px, 2.8vw);
