@@ -10,13 +10,12 @@
   --header-line: #000;
 }
 html {
-  scroll-behavior: smooth;
-  opacity: 0;
   animation: slide-in 0.4s 0.2s cubic-bezier(0, 0.93, 0, 0.99), fade-in 0.3s 0.2s both;
   -webkit-animation: slide-in 0.4s 0.2s cubic-bezier(0, 0.93, 0, 0.99), fade-in 0.3s 0.2s both;
   font-family: -bahnsr;
 }
 body {
+  position: relative;
   background-color: var(--page-color);
   overflow: hidden overlay;
   color: var(--text-color);
@@ -95,16 +94,17 @@ header {
   padding-top: 110px;
   margin: 0 8vw;
   width: inherit;
-  transform: translateY(calc(min(100vh, var(--scroll-progress-px) / 1.5))) scale(calc(1 - var(--scroll-progress) / 3000));
+  transform: scale(calc(1 - var(--scroll-progress) / 6000));
   height: calc(100vh - 175px);
   display: flex;
   flex-flow: wrap;
   align-content: center;
-  min-height: 300px;
-  max-height: 800px;
-  opacity: calc(1 - var(--scroll-progress) / 500);
+  min-height: 265px;
+  max-height: 765px;
+  opacity: calc(1 - var(--scroll-progress) / 300);
   z-index: -1;
-  position: relative;
+  top: 0;
+  position: fixed;
 }
 .gtext > div {
   width: 100%;
@@ -122,7 +122,7 @@ header {
   position: relative;
   width: inherit;
   height: 200px;
-  margin: 20px 0 -180px 0;
+  margin: min(max(400px, calc(100vh - 40px)), 900px) 0 -180px 0;
   padding-top: 12px;
   border-radius: 30px 30px 0 0;
   background: #000;
@@ -154,7 +154,6 @@ header {
   position: relative;
 }
 .sectitle {
-  font-weight: bold;
   text-transform: uppercase;
   font-size: 2rem;
   margin: 60px 0 60px 0;
@@ -234,7 +233,7 @@ header {
   font-size: 18px;
   overflow: hidden;
   width: calc(100% - 20px);
-  margin-right: 30px;
+  padding-right: 75px;
   white-space: nowrap;
 }
 .title {
@@ -341,6 +340,10 @@ footer {
   letter-spacing: 1em;
 }
 
+.quote > span {
+  letter-spacing: 0;
+}
+
 .author {
   margin-top: min(2.5vw, 10px);
   font-size: min(2.5vw, 15px);
@@ -348,7 +351,7 @@ footer {
 
 @media only screen and (max-width: 550px) {
   .gtext {
-    font-size: max(5px, 2.8vw);
+    font-size: max(5px, 2.5vw);
   }
   .gtext {
     min-height: 65vw;
@@ -359,17 +362,24 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .sectitle::after {
-    display: none;
-  }
   .section {
     padding: 20px 0;
+  }
+  .item {
+    margin-bottom: 0;
+    padding: 25px 40px;
+  }
+  .item-container.link {
+    flex-flow: column;
+  }
+  .item-title {
+    font-size: 15px;
+    padding-right: 0;
+    margin-right: 30px;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --scroll-progress: 0;
-    --scroll-progress-px: 0px;
     --header-color: #080808be;
     --page-color: #080808;
     --grabber-handler: #616161;
