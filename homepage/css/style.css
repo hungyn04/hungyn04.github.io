@@ -1,13 +1,11 @@
 :root {
   --scroll-progress: 0;
   --scroll-progress-px: 0px;
-  --header-color: #f7f7f7be;
   --page-color: #f7f7f7;
   --grabber-handler: #9f9f9f;
   --text-color: #000;
   --item-bg: #fff;
   --grabber-gra: #e5e5e5;
-  --header-line: #000;
 }
 html {
   animation: slide-in 0.4s 0.2s cubic-bezier(0, 0.93, 0, 0.99), fade-in 0.3s 0.2s both;
@@ -23,29 +21,30 @@ body {
   -webkit-transition: background-color 0.75s, color 0.2s;
 }
 header {
-  background-color: var(--header-color);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, var(--page-color) 90%);
   position: fixed;
   width: 100%;
   top: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  height: calc(110px - min(50px, var(--scroll-progress-px) / 2));
+  height: 80px;
   z-index: 2;
   transition: background-color 0.75s;
+  pointer-events: none;
 }
 .header-title {
   float: left;
-  margin: 0 calc(40px - min(15px, var(--scroll-progress-px) / 6));
+  margin: 5px 30px;
   display: grid;
   grid-auto-flow: column;
-  height: inherit;
-  width: 80%;
+  height: 50px;
   align-items: center;
   justify-content: start;
+  transform: scale(max(0.65, calc(1 - var(--scroll-progress) / 1000)));
+  transform-origin: top left;
+  pointer-events: all;
+  filter: drop-shadow(0px 5px 5px var(--page-color));
 }
 .header-title > a > img {
   height: 45px;
-  height: calc(50px - min(15px, var(--scroll-progress-px) / 6));
   cursor: pointer;
   border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -71,30 +70,30 @@ header {
   filter: brightness(0.9);
 }
 .header-title > span {
-  margin-left: calc(30px - min(15px, var(--scroll-progress-px) / 6));
-  margin-bottom: -6px;
-  font-size: calc(2em - min(10px, var(--scroll-progress-px) / 10));
+  margin-left: 15px;
+  margin-bottom: -4px;
+  font-size: 1.7em;
   text-transform: uppercase;
   font-stretch: semi-condensed;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.header-line {
+/*.header-line {
   position: absolute;
   border-bottom: solid 1px var(--header-line);
-  width: calc(100% - 200px + min(200px, var(--scroll-progress-px) * 2));
+  width: calc(100% - min(200px, 200px + min(200px, var(--scroll-progress-px) * 2)));
   left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   bottom: 0;
   min-width: 160px;
-}
+}*/
 .gtext {
-  padding-top: 110px;
+  padding-top: 90px;
   margin: 0 8vw;
   width: inherit;
-  transform: scale(calc(1 - var(--scroll-progress) / 6000));
+  transform: scale(calc(1 - var(--scroll-progress) / 6000)) translateY(calc(var(--scroll-progress-px) / -3));
   height: calc(100vh - 175px);
   display: flex;
   flex-flow: wrap;
@@ -380,13 +379,11 @@ footer {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-color: #080808be;
     --page-color: #080808;
     --grabber-handler: #616161;
     --text-color: #fff;
     --item-bg: #0f0f0f;
     --grabber-gra: #1a1a1a;
-    --header-line: #4d4d4d;
   }
   .item-title::after,
   .grabber,
