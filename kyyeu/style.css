@@ -12,20 +12,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "cb";
-  src: url("./res/cambriai.ttf") format("opentype");
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "cb";
-  src: url("./res/cambriaz.ttf") format("opentype");
-  font-weight: bold;
-  font-style: italic;
-}
-
 body {
   font-family: cb;
   margin: 0 max(0px, calc(10vw - 50px));
@@ -62,11 +48,9 @@ body {
 }
 
 .welc > .ctn1 > .tex {
-  padding-right: 60px;
   margin-top: 25px;
   animation: slide-in 1s ease-in-out;
   -webkit-animation: slide-in 1s ease-in-out;
-  overflow: hidden;
 }
 
 @keyframes slide-in {
@@ -209,12 +193,9 @@ body {
   color: transparent;
   font-size: 12rem;
   font-weight: bold;
-  bottom: -20px;
+  bottom: -50px;
   right: -30px;
-}
-
-.welc > .ctn2 > .tex1 div {
-  margin: -60px 0;
+  line-height: 10rem;
 }
 
 .welc > .ctn2 > .tex2 {
@@ -272,6 +253,7 @@ button.invert.trspr:focus-visible {
   background-color: #ffffff14;
 }
 
+button.pressed,
 button:active {
   margin-top: 3px;
   margin-bottom: -3px;
@@ -289,6 +271,7 @@ button#top {
   overflow: hidden;
   transition: width 0.3s;
   -webkit-transition: width 0.3s;
+  display: none;
 }
 
 button#top > span {
@@ -297,11 +280,11 @@ button#top > span {
   -webkit-transition: opacity 0.2s;
 }
 
-button#top:hover {
+button#top.extend {
   width: 205.78px;
 }
 
-button#top:hover > span {
+button#top.extend > span {
   opacity: 1;
 }
 
@@ -330,7 +313,7 @@ button#top > img {
 }
 
 .special > .ovl > div {
-  font-size: 3rem;
+  font-size: min(8vw, 3rem);
   font-weight: bold;
   color: white;
   margin-bottom: 20px;
@@ -366,24 +349,44 @@ button#top > img {
 section {
   margin-top: 100px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
+}
+
+section:nth-child(odd) {
+  flex-direction: row-reverse;
 }
 
 section > .clt {
   position: relative;
-  width: 400px;
+  min-width: 400px;
   height: 300px;
   overflow: hidden;
+}
+
+section > .clt::after {
+  content: "";
+  position: absolute;
+  background: url(./res/sktch2.svg) no-repeat;
+  background-size: contain;
+  width: 50px;
+  height: 100px;
+  bottom: 0;
+}
+
+section:nth-child(odd) > .clt::after {
+  left: 350px;
+  transform: scaleX(-1);
 }
 
 section > .clt > img {
   height: 150px;
   width: 190px;
   object-fit: cover;
+  object-position: 0 1px;
   border-radius: 25px;
   border: solid white 5px;
   position: absolute;
+  background: white;
 }
 
 section > .clt > img:nth-child(1) {
@@ -401,8 +404,73 @@ section > .des {
   margin: 0 30px;
 }
 
+section:nth-child(odd) > .des {
+  text-align: right;
+}
+
 section > .des > h1 {
   font-size: 2rem;
   margin: 1px;
   margin-top: 20px;
+}
+
+section > .des > button > img {
+  height: 15px;
+  transform: rotate(225deg);
+  margin-bottom: -3px;
+  margin-left: 5px;
+}
+
+section > .line {
+  margin: 0 0 0 50px;
+  border-top: solid 2px black;
+  border-top-style: dashed;
+  height: 1px;
+  flex-grow: 1;
+  opacity: 0.5;
+}
+
+section:nth-child(odd) > .line {
+  margin: 0 50px 0 0;
+}
+
+@media only screen and (max-width: 840px) {
+  body {
+    margin: 0;
+  }
+  section > .clt {
+    width: max(calc(10vw + 300px), 385px);
+  }
+  section > .des {
+    margin: 0 0 0 30px;
+  }
+  section:nth-child(odd) > .des {
+    margin: 0 30px 0 0;
+  }
+  section > .line {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  section {
+    display: block;
+  }
+  section > .clt {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .special {
+    border-radius: 0;
+  }
+  .welc {
+    margin: 80px 40px;
+  }
 }
