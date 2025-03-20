@@ -25,8 +25,8 @@ document.addEventListener("scroll", () => {
   }
   lstScrollPos = window.scrollY;
 });
+
 topBttn.addEventListener("click", () => {
-  topBttn.style.display = "none";
   document.documentElement.scrollTo({
     top: 0,
     behavior: "smooth",

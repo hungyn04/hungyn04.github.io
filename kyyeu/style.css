@@ -17,6 +17,9 @@ body {
   margin: 0 max(0px, calc(10vw - 50px));
   animation: fade 1s ease-in-out;
   -webkit-animation: fade 1s ease-in-out;
+  background-image: linear-gradient(#0000000a 1px, transparent 1px), linear-gradient(to right, #0000000a 1px, transparent 1px);
+  background-color: #ffffff;
+  background-size: 20px 20px;
 }
 
 @keyframes fade {
