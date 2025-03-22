@@ -1,14 +1,9 @@
-let button = document.querySelectorAll("button");
-let btPress = (elm) => elm.classList.add("pressed");
-let btRelease = (elm) => elm.classList.remove("pressed");
-
-button.forEach((ib) => {
-  ib.addEventListener("touchstart", () => {
-    btPress(ib);
-  });
-  ib.addEventListener("touchend", () => {
-    btRelease(ib);
-  });
+document.addEventListener("touchstart", (event) => {
+  pressedBttn = event.target.closest("button");
+  if (pressedBttn) pressedBttn.classList.add("pressed");
+});
+document.addEventListener("touchend", () => {
+  if (pressedBttn) pressedBttn.classList.remove("pressed");
 });
 
 let topBttn = document.getElementById("top");

@@ -68,8 +68,7 @@ button.invert.trspr:hover {
   background-color: #ffffff14;
 }
 
-button.pressed,
-button:active {
+button.pressed {
   margin-top: 3px;
   margin-bottom: 0;
   box-shadow: none;
