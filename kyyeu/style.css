@@ -45,6 +45,10 @@ button {
   margin-bottom: 3px;
 }
 
+button > img {
+  pointer-events: none;
+}
+
 button.invert {
   background-color: black;
   border-color: white;
@@ -56,15 +60,18 @@ button.invert.trspr {
   background-color: transparent;
 }
 
-button:hover {
+button.hover,
+button.pressed {
   background-color: rgb(var(--pbg-h));
 }
 
-button.invert:hover {
+button.invert.hover,
+button.invert.pressed {
   background-color: #171717;
 }
 
-button.invert.trspr:hover {
+button.invert.trspr.hover,
+button.invert.trspr.pressed {
   background-color: #ffffff14;
 }
 

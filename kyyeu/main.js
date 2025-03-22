@@ -3,7 +3,14 @@ document.addEventListener("touchstart", (event) => {
   if (pressedBttn) pressedBttn.classList.add("pressed");
 });
 document.addEventListener("touchend", () => {
-  if (pressedBttn) pressedBttn.classList.remove("pressed");
+  pressedBttn.classList.remove("pressed");
+});
+document.addEventListener("mousedown", (event) => {
+  pressedBttn = event.target.closest("button");
+  if (pressedBttn) pressedBttn.classList.add("pressed");
+});
+document.addEventListener("mouseup", () => {
+  pressedBttn.classList.remove("pressed");
 });
 
 let topBttn = document.getElementById("top");
