@@ -1,11 +1,13 @@
 let button = document.querySelectorAll("button");
+let btPress = (elm) => elm.classList.add("pressed");
+let btRelease = (elm) => elm.classList.remove("pressed");
 
 button.forEach((ib) => {
   ib.addEventListener("touchstart", () => {
-    ib.classList.add("pressed");
+    btPress(ib);
   });
   ib.addEventListener("touchend", () => {
-    ib.classList.remove("pressed");
+    btRelease(ib);
   });
 });
 
