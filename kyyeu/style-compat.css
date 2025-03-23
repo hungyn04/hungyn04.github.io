@@ -6,6 +6,7 @@ body {
 
 button {
   background-color: #fff;
+  box-shadow: #000 0 3px;
 }
 
 button#top {
@@ -19,6 +20,15 @@ button#top > span {
 button#top > img {
   -webkit-transform: scale(-1);
 }
+
+.welc > .ctn1 > .tex1 {
+  -webkit-text-stroke: 1px black;
+}
+
+.welc > .ctn2 {
+  padding: 80px -webkit-calc(10vw + 30px);
+}
+
 .welc > .ctn2 > .logo {
   -webkit-filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.184));
 }
@@ -29,6 +39,22 @@ button#top > img {
 
 .welc > .ctn2 > .guide > img {
   -webkit-animation: wiggle 1.5s ease-in-out infinite;
+}
+
+.content {
+  margin: -webkit-calc(5vw) -webkit-calc(10vw - 30px);
+}
+
+.special {
+  display: -webkit-flex;
+}
+
+.special > .ovl > button > img {
+  -webkit-filter: invert(1);
+}
+
+section {
+  display: -webkit-flex;
 }
 
 section:nth-child(odd) > .clt::after {
@@ -48,6 +74,13 @@ section > .clt > img:nth-child(3) {
 section > .des > button > img {
   -webkit-transform: rotate(225deg);
 }
+
+@media only screen and (max-width: 840px) {
+  section > .clt {
+    width: -webkit-calc(10vw + 300px);
+  }
+}
+
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
