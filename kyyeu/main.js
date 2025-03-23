@@ -23,6 +23,10 @@ let pressedList = [];
             behavior: "smooth",
           });
         }
+        let linkBttn = event.target.closest("#linkBttn");
+        if (linkBttn) {
+          window.open(linkBttn.getAttribute("lr"));
+        }
         break;
       case "mouseover":
         hoveredBttn = event.target.closest("button");
