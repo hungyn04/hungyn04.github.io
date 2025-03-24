@@ -1,7 +1,9 @@
 let hoveredBttn,
   lastBttn = null;
 let pressedList = [];
-["touchstart", "touchend", "mousedown", "mouseup", "mouseover"].forEach((act) => {
+let eventList = ["touchstart", "touchend", "mousedown", "mouseup", "mouseover"];
+
+eventList.forEach((act) => {
   document.addEventListener(act, (event) => {
     switch (act) {
       case "touchstart":
@@ -18,14 +20,23 @@ let pressedList = [];
           tg.classList.remove("pressed");
         });
         if (event.target.closest("#top")) {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
+          intitT = 0;
+          initS = window.scrollY;
+          requestAnimationFrame(function _(t) {
+            if (intitT == 0) intitT = t;
+            dtTs = (t - intitT) / 800;
+            if (window.scrollY > 0) {
+              window.scroll(0, initS * Math.pow(2, -10 * dtTs));
+              requestAnimationFrame(_);
+              document.body.style.overflow = "hidden";
+            } else {
+              document.body.style.overflow = "scroll";
+            }
           });
         }
         let linkBttn = event.target.closest("#linkBttn");
         if (linkBttn) {
-          window.open(linkBttn.getAttribute("lr"));
+          window.open(linkBttn.getAttribute("onkeypress"));
         }
         break;
       case "mouseover":
@@ -40,6 +51,8 @@ let pressedList = [];
     }
   });
 });
+
+function go(t) {}
 
 let topBttn = document.getElementById("top");
 let lstScrollPos = window.scrollY;
