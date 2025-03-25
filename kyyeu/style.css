@@ -126,7 +126,7 @@ button#top > img {
 
 .welc {
   height: 100%;
-  min-height: 490px;
+  min-height: 440px;
   position: relative;
 }
 
@@ -180,7 +180,7 @@ button#top > img {
 }
 
 .welc > .ctn2 {
-  padding: 80px max(0px, calc(10vw + 30px));
+  padding: 10vh max(0px, calc(10vw + 30px));
 }
 
 .welc > .ctn2 > .logo {
@@ -426,7 +426,7 @@ section:nth-child(odd) > .line {
     border-radius: 0;
   }
   .welc > .ctn2 {
-    padding: 80px 40px;
+    padding: 8vh 40px;
   }
 }
 

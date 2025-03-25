@@ -13,7 +13,7 @@ function addContent(json) {
   </div><div class="des">
   <h1>${nm}</h1>
   <p>${dc}</p>
-  <button id="linkBttn" onkeypress="${lr}">
+  <button id="linkBttn" onclick="goto('${lr}')">
   <span>Xem ngay và luôn</span>
   <img src="./res/arrow.svg"/>
   </button>

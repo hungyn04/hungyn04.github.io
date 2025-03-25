@@ -4,6 +4,8 @@ let pressedList = [];
 let topBttn = document.getElementById("top");
 let lstScrollPos = 0;
 
+checkScrollTopBttn();
+
 EVENT.forEach((act) => {
   document.addEventListener(act, (event) => {
     switch (act) {
@@ -45,11 +47,6 @@ EVENT.forEach((act) => {
             }
           });
         }
-        let linkBttn = event.target.closest("#linkBttn");
-        if (linkBttn) {
-          window.open(linkBttn.getAttribute("onkeypress"));
-        }
-        break;
       case "mouseover":
         hoveredBttn = event.target.closest("button");
         if (hoveredBttn) {
@@ -60,22 +57,26 @@ EVENT.forEach((act) => {
           lastBttn = null;
         }
       case "scroll":
-        if (window.scrollY < 100) {
-          topBttn.style.visibility = "hidden";
-        } else {
-          topBttn.style.visibility = "visible";
-        }
-        if (lstScrollPos - window.scrollY > 5) {
-          topBttn.classList.add("extend");
-        }
-        if (window.scrollY - lstScrollPos > 5) {
-          topBttn.classList.remove("extend");
-        }
-        lstScrollPos = window.scrollY;
+        checkScrollTopBttn();
     }
   });
 });
 
-function ontouchout(elm) {
-  ontouch;
+function checkScrollTopBttn() {
+  if (window.scrollY < 100) {
+    topBttn.style.visibility = "hidden";
+  } else {
+    topBttn.style.visibility = "visible";
+  }
+  if (lstScrollPos - window.scrollY > 5) {
+    topBttn.classList.add("extend");
+  }
+  if (window.scrollY - lstScrollPos > 5) {
+    topBttn.classList.remove("extend");
+  }
+  lstScrollPos = window.scrollY;
+}
+
+function goto(url) {
+  window.open(url, "_blank").focus();
 }
