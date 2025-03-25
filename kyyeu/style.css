@@ -216,7 +216,7 @@ button#top > img {
   content: "";
   position: absolute;
   width: 40px;
-  height: 50p
+  height: 50px;
   top: 0;
   background: url(./res/sktch1.svg) no-repeat;
   background-size: contain;

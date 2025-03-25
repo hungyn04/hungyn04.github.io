@@ -1,9 +1,10 @@
-let hoveredBttn,
-  lastBttn = null;
+const EVENT = ["touchstart", "touchend", "mousedown", "mouseup", "mouseover", "scroll"];
+let hoveredBttn = (lastBttn = null);
 let pressedList = [];
-let eventList = ["touchstart", "touchend", "mousedown", "mouseup", "mouseover"];
+let topBttn = document.getElementById("top");
+let lstScrollPos = 0;
 
-eventList.forEach((act) => {
+EVENT.forEach((act) => {
   document.addEventListener(act, (event) => {
     switch (act) {
       case "touchstart":
@@ -12,6 +13,9 @@ eventList.forEach((act) => {
         if (pressedBttn) {
           pressedList.push(pressedBttn);
           pressedBttn.classList.add("pressed");
+          onscroll = () => {
+            pressedBttn.classList.remove("pressed");
+          };
         }
         break;
       case "touchend":
@@ -19,18 +23,25 @@ eventList.forEach((act) => {
         pressedList.forEach((tg) => {
           tg.classList.remove("pressed");
         });
+        pressedList = [];
         if (event.target.closest("#top")) {
           intitT = 0;
           initS = window.scrollY;
-          requestAnimationFrame(function _(t) {
+          anm = requestAnimationFrame(function _(t) {
             if (intitT == 0) intitT = t;
-            dtTs = (t - intitT) / 800;
+            dtTs = (t - intitT) / (750 + initS / 60);
             if (window.scrollY > 0) {
               window.scroll(0, initS * Math.pow(2, -10 * dtTs));
-              requestAnimationFrame(_);
-              document.body.style.overflow = "hidden";
-            } else {
-              document.body.style.overflow = "scroll";
+              anm = requestAnimationFrame(_);
+              onwheel = () => {
+                cancelAnimationFrame(anm);
+              };
+              ontouchstart = () => {
+                cancelAnimationFrame(anm);
+              };
+              ontouchmove = () => {
+                cancelAnimationFrame(anm);
+              };
             }
           });
         }
@@ -48,30 +59,23 @@ eventList.forEach((act) => {
           lastBttn.classList.remove("hover");
           lastBttn = null;
         }
+      case "scroll":
+        if (window.scrollY < 100) {
+          topBttn.style.visibility = "hidden";
+        } else {
+          topBttn.style.visibility = "visible";
+        }
+        if (lstScrollPos - window.scrollY > 5) {
+          topBttn.classList.add("extend");
+        }
+        if (window.scrollY - lstScrollPos > 5) {
+          topBttn.classList.remove("extend");
+        }
+        lstScrollPos = window.scrollY;
     }
   });
 });
 
-function go(t) {}
-
-let topBttn = document.getElementById("top");
-let lstScrollPos = window.scrollY;
-checkScroll();
-document.addEventListener("scroll", () => {
-  checkScroll();
-});
-
-function checkScroll() {
-  if (window.scrollY < 100) {
-    topBttn.style.visibility = "hidden";
-  } else {
-    topBttn.style.visibility = "visible";
-  }
-  if (lstScrollPos - window.scrollY > 5) {
-    topBttn.classList.add("extend");
-  }
-  if (window.scrollY - lstScrollPos > 5) {
-    topBttn.classList.remove("extend");
-  }
-  lstScrollPos = window.scrollY;
+function ontouchout(elm) {
+  ontouch;
 }
