@@ -99,7 +99,7 @@ button#top {
   white-space: nowrap;
   overflow: hidden;
   text-align: left;
-  transition: width 0.3s;
+  transition: opacity 0.2s, width 0.2s;
   touch-action: none;
 }
 
