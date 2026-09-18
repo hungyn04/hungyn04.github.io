@@ -11,7 +11,7 @@
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const number = urlParams.get("number");
-      const name = encodeURIComponent(urlParams.get("name"));
+      const name = urlParams.get("name");
       const content = encodeURIComponent(urlParams.get("content").replace("[name]", name));
       window.location.href = `sms:${number}&body=${content}`;
     </script>
