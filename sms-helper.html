@@ -7,13 +7,27 @@
     <link rel="icon" href="/resources/logo-rounded.png" />
   </head>
   <body>
+    <div>A simple SMS helper that open SMS app with a defined number and message, for my own use.</div>
+    <div style="margin-top: 10px">Append to the end of the URL this:</div>
+    <i>?number=...&content=...&name=...</i>
+    <div style="margin-top: 10px">Example:</div>
+    <a id="example"></a>
     <script>
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const number = urlParams.get("number");
-      const name = urlParams.get("name");
-      const content = encodeURIComponent(urlParams.get("content").replace("[name]", name));
-      window.location.href = `sms:${number}&body=${content}`;
+      try {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const number = urlParams.get("number");
+        const name = urlParams.get("name");
+        const content = encodeURIComponent(urlParams.get("content").replace("[name]", name));
+        window.location.href = `sms:${number}&body=${content}`;
+        window.location.href = "about:blank";
+      } catch (error) {}
+
+      const example = "?number=0123456789&content=Your name is [name]&name=HN";
+      const result = window.location.origin + window.location.pathname + example;
+      let exampleElement = document.getElementById("example");
+      exampleElement.setAttribute("href", result);
+      exampleElement.textContent = result;
     </script>
   </body>
 </html>
